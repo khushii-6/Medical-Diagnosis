@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Symptom Assistant | AI Medical Assistant</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo-section">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3>AI Medical</h3>
+                    <p>Assistant</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/medicine">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicine Search
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/imaging">
+                        <i class="fa-solid fa-x-ray"></i>
+                        Medical Imaging
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="/symptom">
+                        <i class="fa-solid fa-robot"></i>
+                        Symptom Assistant
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/result">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Generate Result
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <h1>AI Symptom Assistant</h1>
+
+            <p>
+                Describe symptoms and receive an AI-powered
+                preliminary assessment with medication suggestions.
+            </p>
+
+        </div>
+
+        <!-- CHAT SECTION -->
+
+        <div class="chat-layout">
+
+            <!-- LEFT PANEL -->
+
+            <div class="chat-panel">
+
+                <div class="chat-header">
+
+                    <div class="chat-title">
+
+                        <i class="fa-solid fa-robot"></i>
+
+                        <div>
+                            <h3>Medical AI Assistant</h3>
+                            <span>Online</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="chat-messages">
+
+                    <div class="message-bot">
+
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+
+                        <div class="message-content">
+
+                            Hello 👋<br>
+                            Please describe your symptoms.
+                            Example:
+                            Fever, headache, cough, body pain.
+
+                        </div>
+
+                    </div>
+
+                    {% if answer %}
+
+                    <div class="message-user">
+
+                        <div class="message-content">
+                            {{ symptom if symptom else "Patient Symptoms Submitted" }}
+                        </div>
+
+                    </div>
+
+                    <div class="message-bot">
+
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+
+                        <div class="message-content">
+
+                            {{ answer }}
+
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- INPUT -->
+
+                <form
+                    action="/analyze-symptom"
+                    method="POST"
+                    class="chat-input-area">
+
+                    <input
+                        type="text"
+                        name="symptom"
+                        placeholder="Describe symptoms..."
+                        required>
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- RIGHT PANEL -->
+
+            <div class="analysis-panel">
+
+                <div class="analysis-card">
+
+                    <h3>
+                        AI Diagnostic Summary
+                    </h3>
+
+                    {% if answer %}
+
+                    <div class="diagnosis-box">
+
+                        <i class="fa-solid fa-stethoscope"></i>
+
+                        <h4>
+                            Preliminary Assessment
+                        </h4>
+
+                        <p>
+                            {{ answer }}
+                        </p>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="diagnosis-box">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        <h4>
+                            Waiting For Input
+                        </h4>
+
+                        <p>
+                            Enter symptoms to receive
+                            AI-generated recommendations.
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Common Symptoms
+                    </h3>
+
+                    <div class="symptom-tags">
+
+                        <span>Fever</span>
+                        <span>Headache</span>
+                        <span>Cough</span>
+                        <span>Cold</span>
+                        <span>Fatigue</span>
+                        <span>Body Pain</span>
+                        <span>Allergy</span>
+                        <span>Stomach Pain</span>
+
+                    </div>
+
+                </div>
+
+                <div class="analysis-card">
+
+                    <h3>
+                        AI Capabilities
+                    </h3>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            Symptom Analysis
+                        </li>
+
+                        <li>
+                            Medicine Suggestions
+                        </li>
+
+                        <li>
+                            Risk Assessment
+                        </li>
+
+                        <li>
+                            Clinical Recommendations
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
