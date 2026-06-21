@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Report | AI Medical Assistant</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo-section">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3>AI Medical</h3>
+                    <p>Assistant</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/medicine">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicine Search
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/imaging">
+                        <i class="fa-solid fa-x-ray"></i>
+                        Medical Imaging
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/symptom">
+                        <i class="fa-solid fa-robot"></i>
+                        Symptom Assistant
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="/result">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Generate Result
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <h1>Medical Report Generator</h1>
+
+            <p>
+                AI-generated clinical summary combining
+                symptoms, medication recommendations,
+                and imaging analysis.
+            </p>
+
+        </div>
+
+        <!-- ACTION BUTTONS -->
+
+        <div class="report-actions">
+
+            <button onclick="window.print()" class="primary-btn">
+
+                <i class="fa-solid fa-print"></i>
+                Print Report
+
+            </button>
+
+            <button class="secondary-btn">
+
+                <i class="fa-solid fa-file-pdf"></i>
+                Download PDF
+
+            </button>
+
+        </div>
+
+        <!-- REPORT -->
+
+        <div class="report-container">
+
+            <!-- HEADER -->
+
+            <div class="report-header">
+
+                <div>
+
+                    <h2>AI Medical Assistant</h2>
+
+                    <p>
+                        Clinical Diagnostic Summary
+                    </p>
+
+                </div>
+
+                <div class="report-badge">
+                    GENERATED REPORT
+                </div>
+
+            </div>
+
+            <!-- PATIENT INFORMATION -->
+
+            <div class="report-section">
+
+                <h3>
+                    Patient Information
+                </h3>
+
+                <div class="report-grid">
+
+                    <div class="report-item">
+
+                        <label>
+                            Patient Name
+                        </label>
+
+                        <span>
+                            John Doe
+                        </span>
+
+                    </div>
+
+                    <div class="report-item">
+
+                        <label>
+                            Age
+                        </label>
+
+                        <span>
+                            35 Years
+                        </span>
+
+                    </div>
+
+                    <div class="report-item">
+
+                        <label>
+                            Gender
+                        </label>
+
+                        <span>
+                            Male
+                        </span>
+
+                    </div>
+
+                    <div class="report-item">
+
+                        <label>
+                            Date
+                        </label>
+
+                        <span>
+                            2026-06-19
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SYMPTOMS -->
+
+            <div class="report-section">
+
+                <h3>
+                    Symptom Summary
+                </h3>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-stethoscope"></i>
+
+                    <p>
+                        Patient reported fever,
+                        headache, fatigue and mild cough.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- AI ANALYSIS -->
+
+            <div class="report-section">
+
+                <h3>
+                    AI Assessment
+                </h3>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                    <p>
+                        Symptoms indicate a possible
+                        viral infection. Adequate hydration,
+                        rest and monitoring are recommended.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- MEDICATION -->
+
+            <div class="report-section">
+
+                <h3>
+                    Recommended Medication
+                </h3>
+
+                <div class="medicine-summary">
+
+                    <div class="med-card">
+
+                        <h4>Paracetamol</h4>
+
+                        <span>500mg</span>
+
+                        <p>
+                            Fever and pain management.
+                        </p>
+
+                    </div>
+
+                    <div class="med-card">
+
+                        <h4>Cough Syrup</h4>
+
+                        <span>10ml</span>
+
+                        <p>
+                            Relief from persistent cough.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- IMAGING -->
+
+            <div class="report-section">
+
+                <h3>
+                    Imaging Findings
+                </h3>
+
+                <div class="summary-card">
+
+                    <i class="fa-solid fa-x-ray"></i>
+
+                    <p>
+                        Multiple cystic lesions detected.
+                        Findings suggest possible
+                        Polycystic Kidney Disease.
+                        Further evaluation is recommended.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RISK LEVEL -->
+
+            <div class="report-section">
+
+                <h3>
+                    Risk Assessment
+                </h3>
+
+                <div class="risk-box">
+
+                    <span class="risk-medium">
+                        MEDIUM RISK
+                    </span>
+
+                    <p>
+                        Patient condition appears stable,
+                        however specialist consultation is
+                        advised for confirmation.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- RECOMMENDATIONS -->
+
+            <div class="report-section">
+
+                <h3>
+                    Clinical Recommendations
+                </h3>
+
+                <ul class="recommendation-list">
+
+                    <li>
+                        Maintain adequate hydration.
+                    </li>
+
+                    <li>
+                        Monitor temperature regularly.
+                    </li>
+
+                    <li>
+                        Follow prescribed medication dosage.
+                    </li>
+
+                    <li>
+                        Schedule specialist consultation.
+                    </li>
+
+                    <li>
+                        Seek emergency care if symptoms worsen.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div class="report-footer">
+
+                <p>
+                    This report is AI-generated and intended
+                    for educational/demo purposes only.
+                    Always consult a qualified healthcare
+                    professional for medical advice.
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
