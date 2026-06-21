@@ -47,3 +47,11 @@ Consult nephrology specialist.
 @app.route("/imaging")
 def imaging():
     return render_template("imaging.html")
+
+
+
+
+//RESULT
+@app.route("/result")
+def result():
+    return render_template("result.html")
