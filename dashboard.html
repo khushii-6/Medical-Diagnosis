@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinical Dashboard</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo-section">
+
+            <div class="logo-icon">
+                <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+
+            <div>
+                <h3>AI Medical</h3>
+                <p>Assistant</p>
+            </div>
+
+        </div>
+
+        <ul class="menu">
+
+            <li class="active">
+                <a href="/dashboard">
+                    <i class="fa-solid fa-chart-line"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="/medicine">
+                    <i class="fa-solid fa-capsules"></i>
+                    Medicine Search
+                </a>
+            </li>
+
+            <li>
+                <a href="/imaging">
+                    <i class="fa-solid fa-x-ray"></i>
+                    Medical Imaging
+                </a>
+            </li>
+
+            <li>
+                <a href="/symptom">
+                    <i class="fa-solid fa-robot"></i>
+                    Symptom Assistant
+                </a>
+            </li>
+
+            <li>
+                <a href="/result">
+                    <i class="fa-solid fa-file-medical"></i>
+                    Generate Result
+                </a>
+            </li>
+
+        </ul>
+
+        <div class="sidebar-footer">
+
+            <div class="status-dot"></div>
+
+            <span>System Online</span>
+
+        </div>
+
+    </aside>
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <!-- Top Bar -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h2>Clinical Dashboard</h2>
+
+                <p>
+                    Monitor medical operations and AI diagnostic systems.
+                </p>
+
+            </div>
+
+            <div class="user-profile">
+
+                <div class="avatar">
+                    {{ user[0]|upper if user else 'A' }}
+                </div>
+
+                <div>
+
+                    <h4>{{ user }}</h4>
+
+                    <small>Administrator</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Hero Section -->
+
+        <section class="hero-section">
+
+            <div class="hero-left">
+
+                <span class="hero-tag">
+                    CLINICAL OPERATIONS HUB
+                </span>
+
+                <h1>
+                    AI Medical<br>
+                    Assistant
+                </h1>
+
+                <p>
+                    Access intelligent diagnosis tools,
+                    medicine search databases,
+                    symptom analysis systems and
+                    patient imaging reports.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="/symptom">
+                        <button class="primary-btn">
+                            <i class="fa-solid fa-robot"></i>
+                            Symptom Chatbot
+                        </button>
+                    </a>
+
+                    <a href="/imaging">
+                        <button class="secondary-btn">
+                            <i class="fa-solid fa-upload"></i>
+                            Upload Scan
+                        </button>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="hero-right">
+
+                <div class="glass-card">
+
+                    <div class="card-header">
+
+                        <h3>
+                            Medical Database Connected
+                        </h3>
+
+                        <span class="live-badge">
+                            LIVE
+                        </span>
+
+                    </div>
+
+                    <div class="database-grid">
+
+                        <div class="db-card">
+
+                            <i class="fa-solid fa-database"></i>
+
+                            <h4>Medicine DB</h4>
+
+                            <p>
+                                Active Records
+                            </p>
+
+                        </div>
+
+                        <div class="db-card">
+
+                            <i class="fa-solid fa-user-doctor"></i>
+
+                            <h4>Patients</h4>
+
+                            <p>
+                                Upload Center
+                            </p>
+
+                        </div>
+
+                        <div class="db-card">
+
+                            <i class="fa-solid fa-brain"></i>
+
+                            <h4>AI Engine</h4>
+
+                            <p>
+                                Symptom Analysis
+                            </p>
+
+                        </div>
+
+                        <div class="db-card">
+
+                            <i class="fa-solid fa-x-ray"></i>
+
+                            <h4>Imaging</h4>
+
+                            <p>
+                                Scan Reports
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats-section">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-capsules"></i>
+                </div>
+
+                <div>
+
+                    <h2>1,240</h2>
+
+                    <p>Medicines Available</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <div>
+
+                    <h2>8,540</h2>
+
+                    <p>Patient Records</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-file-waveform"></i>
+                </div>
+
+                <div>
+
+                    <h2>1,150</h2>
+
+                    <p>Scan Reports</p>
+
+                </div>
+
+            </div>
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    <i class="fa-solid fa-robot"></i>
+                </div>
+
+                <div>
+
+                    <h2>98%</h2>
+
+                    <p>AI Accuracy</p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Quick Tools -->
+
+        <section class="tools-section">
+
+            <h3>
+                Quick Access Tools
+            </h3>
+
+            <div class="tools-grid">
+
+                <a href="/medicine" class="tool-card">
+
+                    <i class="fa-solid fa-pills"></i>
+
+                    <h4>Medicine Search</h4>
+
+                    <p>
+                        Search medical database
+                    </p>
+
+                </a>
+
+                <a href="/symptom" class="tool-card">
+
+                    <i class="fa-solid fa-stethoscope"></i>
+
+                    <h4>Symptom Assistant</h4>
+
+                    <p>
+                        AI-powered recommendations
+                    </p>
+
+                </a>
+
+                <a href="/imaging" class="tool-card">
+
+                    <i class="fa-solid fa-x-ray"></i>
+
+                    <h4>Medical Imaging</h4>
+
+                    <p>
+                        Upload and analyze scans
+                    </p>
+
+                </a>
+
+                <a href="/result" class="tool-card">
+
+                    <i class="fa-solid fa-file-medical"></i>
+
+                    <h4>Generate Report</h4>
+
+                    <p>
+                        Export diagnostic summary
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- Activity -->
+
+        <section class="activity-section">
+
+            <div class="activity-card">
+
+                <h3>
+                    Recent Activity
+                </h3>
+
+                <ul>
+
+                    <li>
+                        MRI Scan Uploaded
+                    </li>
+
+                    <li>
+                        Symptom Analysis Completed
+                    </li>
+
+                    <li>
+                        Medicine Database Updated
+                    </li>
+
+                    <li>
+                        Diagnostic Report Generated
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
