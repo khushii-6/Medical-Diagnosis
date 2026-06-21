@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medical Imaging | AI Medical Assistant</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo-section">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3>AI Medical</h3>
+                    <p>Assistant</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/medicine">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicine Search
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="/imaging">
+                        <i class="fa-solid fa-x-ray"></i>
+                        Medical Imaging
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/symptom">
+                        <i class="fa-solid fa-robot"></i>
+                        Symptom Assistant
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/result">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Generate Result
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <div class="page-header">
+
+            <h1>Medical Imaging Analysis</h1>
+
+            <p>
+                Upload X-Ray, MRI, CT Scan or Ultrasound images
+                and receive AI-powered demo diagnostic reports.
+            </p>
+
+        </div>
+
+        <div class="imaging-layout">
+
+            <!-- LEFT SIDE -->
+
+            <div class="upload-panel">
+
+                <div class="upload-card">
+
+                    <h3>
+                        Upload Medical Scan
+                    </h3>
+
+                    <form
+                        action="/upload-scan"
+                        method="POST"
+                        enctype="multipart/form-data">
+
+                        <label class="upload-area">
+
+                            <input
+                                type="file"
+                                name="scan"
+                                accept="image/*">
+
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                            <h4>
+                                Drag & Drop Scan
+                            </h4>
+
+                            <p>
+                                Supported: JPG, PNG, JPEG
+                            </p>
+
+                        </label>
+
+                        <button
+                            type="submit"
+                            class="primary-btn upload-btn">
+
+                            <i class="fa-solid fa-upload"></i>
+                            Upload Scan
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <!-- SAMPLE SCANS -->
+
+                <div class="upload-card">
+
+                    <h3>
+                        Scan Types Supported
+                    </h3>
+
+                    <div class="scan-types">
+
+                        <div class="scan-type">
+                            <i class="fa-solid fa-lungs"></i>
+                            Chest X-Ray
+                        </div>
+
+                        <div class="scan-type">
+                            <i class="fa-solid fa-brain"></i>
+                            MRI Scan
+                        </div>
+
+                        <div class="scan-type">
+                            <i class="fa-solid fa-heart"></i>
+                            CT Scan
+                        </div>
+
+                        <div class="scan-type">
+                            <i class="fa-solid fa-stethoscope"></i>
+                            Ultrasound
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDE -->
+
+            <div class="analysis-panel">
+
+                <!-- PREVIEW -->
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Scan Preview
+                    </h3>
+
+                    {% if filename %}
+
+                    <div class="scan-preview">
+
+                        <img
+                            src="{{ url_for('static', filename='uploads/' + filename) }}"
+                            alt="Scan">
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="empty-preview">
+
+                        <i class="fa-solid fa-image"></i>
+
+                        <p>
+                            No Scan Uploaded Yet
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- AI REPORT -->
+
+                <div class="analysis-card">
+
+                    <h3>
+                        AI Diagnostic Report
+                    </h3>
+
+                    {% if report %}
+
+                    <div class="report-box">
+
+                        <div class="report-status">
+
+                            <span class="live-badge">
+                                ANALYSIS COMPLETE
+                            </span>
+
+                        </div>
+
+                        <p>
+                            {{ report }}
+                        </p>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="report-box">
+
+                        <p>
+                            Upload a scan to generate
+                            AI-powered diagnostic findings.
+                        </p>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- FINDINGS -->
+
+                <div class="analysis-card">
+
+                    <h3>
+                        Demo Findings
+                    </h3>
+
+                    <ul class="feature-list">
+
+                        <li>
+                            Organ Detection
+                        </li>
+
+                        <li>
+                            Lesion Identification
+                        </li>
+
+                        <li>
+                            Tissue Density Analysis
+                        </li>
+
+                        <li>
+                            Preliminary Recommendations
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>
