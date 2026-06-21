@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Medicine Search | AI Medical Assistant</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div>
+
+            <div class="logo-section">
+
+                <div class="logo-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+
+                <div>
+                    <h3>AI Medical</h3>
+                    <p>Assistant</p>
+                </div>
+
+            </div>
+
+            <ul class="menu">
+
+                <li>
+                    <a href="/dashboard">
+                        <i class="fa-solid fa-chart-line"></i>
+                        Dashboard
+                    </a>
+                </li>
+
+                <li class="active">
+                    <a href="/medicine">
+                        <i class="fa-solid fa-capsules"></i>
+                        Medicine Search
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/imaging">
+                        <i class="fa-solid fa-x-ray"></i>
+                        Medical Imaging
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/symptom">
+                        <i class="fa-solid fa-robot"></i>
+                        Symptom Assistant
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/result">
+                        <i class="fa-solid fa-file-medical"></i>
+                        Generate Result
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main class="main-content">
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <h1>
+                Medicine Search Database
+            </h1>
+
+            <p>
+                Search medications, dosage information,
+                precautions and usage guidelines from the
+                clinical database.
+            </p>
+
+        </div>
+
+        <!-- SEARCH -->
+
+        <div class="search-container">
+
+            <form
+                action="/search-medicine"
+                method="POST"
+                class="search-form">
+
+                <div class="search-input">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        name="medicine"
+                        placeholder="Search medicine name..."
+                        required>
+
+                </div>
+
+                <select
+                    class="filter-select"
+                    name="age_group">
+
+                    <option value="">
+                        All Age Groups
+                    </option>
+
+                    <option>
+                        Adult
+                    </option>
+
+                    <option>
+                        Pediatric
+                    </option>
+
+                    <option>
+                        Geriatric
+                    </option>
+
+                </select>
+
+                <button
+                    type="submit"
+                    class="search-btn">
+
+                    Search
+
+                </button>
+
+            </form>
+
+            <div class="search-stats">
+
+                <div class="stat-chip">
+                    1200+ Medicines
+                </div>
+
+                <div class="stat-chip">
+                    Updated Database
+                </div>
+
+                <div class="stat-chip">
+                    Clinical Information
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- SEARCH RESULT -->
+
+        {% if result %}
+
+        <div class="results-section">
+
+            <div class="results-title">
+
+                <h2>
+                    Search Result
+                </h2>
+
+                <span>
+                    1 Record Found
+                </span>
+
+            </div>
+
+            <div class="medicine-grid">
+
+                <div class="medicine-card">
+
+                    <div class="medicine-top">
+
+                        <div class="medicine-icon">
+
+                            <i class="fa-solid fa-capsules"></i>
+
+                        </div>
+
+                        <span class="age-badge">
+                            Adult
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        {{ medicine|title }}
+                    </h3>
+
+                    <p>
+                        Medicine information retrieved
+                        from clinical database.
+                    </p>
+
+                    <div class="info-group">
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Dosage
+                            </span>
+
+                            <span class="info-value">
+                                {{ result.dosage }}
+                            </span>
+
+                        </div>
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Usage
+                            </span>
+
+                            <span class="info-value">
+                                {{ result.usage }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="detail-card">
+
+                <h3>
+                    Detailed Information
+                </h3>
+
+                <div class="detail-block">
+
+                    <h4>
+                        Recommended Dosage
+                    </h4>
+
+                    <p>
+                        {{ result.dosage }}
+                    </p>
+
+                </div>
+
+                <div class="detail-block">
+
+                    <h4>
+                        Usage Information
+                    </h4>
+
+                    <p>
+                        {{ result.usage }}
+                    </p>
+
+                </div>
+
+                <div class="detail-block">
+
+                    <h4>
+                        Precautions
+                    </h4>
+
+                    <p>
+                        {{ result.precautions }}
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% else %}
+
+        <div class="results-section">
+
+            <div class="results-title">
+
+                <h2>
+                    Popular Medicines
+                </h2>
+
+            </div>
+
+            <div class="medicine-grid">
+
+                <!-- Card 1 -->
+
+                <div class="medicine-card">
+
+                    <div class="medicine-top">
+
+                        <div class="medicine-icon">
+                            <i class="fa-solid fa-capsules"></i>
+                        </div>
+
+                        <span class="age-badge">
+                            Adult
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Paracetamol
+                    </h3>
+
+                    <p>
+                        Common fever and pain relief medication.
+                    </p>
+
+                    <div class="info-group">
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Dosage
+                            </span>
+
+                            <span class="info-value">
+                                500mg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Card 2 -->
+
+                <div class="medicine-card">
+
+                    <div class="medicine-top">
+
+                        <div class="medicine-icon">
+                            <i class="fa-solid fa-tablets"></i>
+                        </div>
+
+                        <span class="age-badge">
+                            Adult
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Ibuprofen
+                    </h3>
+
+                    <p>
+                        Used for pain and inflammation.
+                    </p>
+
+                    <div class="info-group">
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Dosage
+                            </span>
+
+                            <span class="info-value">
+                                400mg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Card 3 -->
+
+                <div class="medicine-card">
+
+                    <div class="medicine-top">
+
+                        <div class="medicine-icon">
+                            <i class="fa-solid fa-pills"></i>
+                        </div>
+
+                        <span class="age-badge">
+                            Adult
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Cetirizine
+                    </h3>
+
+                    <p>
+                        Allergy treatment medication.
+                    </p>
+
+                    <div class="info-group">
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Dosage
+                            </span>
+
+                            <span class="info-value">
+                                10mg
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="med-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Medicine
+                            </th>
+
+                            <th>
+                                Dosage
+                            </th>
+
+                            <th>
+                                Age Group
+                            </th>
+
+                            <th>
+                                Precautions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Paracetamol
+                            </td>
+
+                            <td>
+                                <span class="dosage-badge">
+                                    500mg
+                                </span>
+                            </td>
+
+                            <td>
+                                Adult
+                            </td>
+
+                            <td>
+                                <span class="precaution-badge">
+                                    Max 4g/day
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Ibuprofen
+                            </td>
+
+                            <td>
+                                <span class="dosage-badge">
+                                    400mg
+                                </span>
+                            </td>
+
+                            <td>
+                                Adult
+                            </td>
+
+                            <td>
+                                <span class="precaution-badge">
+                                    Take After Meals
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Cetirizine
+                            </td>
+
+                            <td>
+                                <span class="dosage-badge">
+                                    10mg
+                                </span>
+                            </td>
+
+                            <td>
+                                Adult
+                            </td>
+
+                            <td>
+                                <span class="precaution-badge">
+                                    May Cause Drowsiness
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        {% endif %}
+
+    </main>
+
+</body>
+
+</html>
