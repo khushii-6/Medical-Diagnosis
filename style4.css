@@ -1,0 +1,649 @@
+/* ===================================
+   STYLE.CSS - PART 4
+   MEDICINE SEARCH PAGE
+=================================== */
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header{
+
+    margin-bottom:30px;
+}
+
+.page-header h1{
+
+    font-size:42px;
+    font-weight:800;
+
+    margin-bottom:12px;
+}
+
+.page-header p{
+
+    color:var(--muted);
+
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* =========================
+   SEARCH CONTAINER
+========================= */
+
+.search-container{
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:30px;
+
+    backdrop-filter:blur(16px);
+
+    margin-bottom:30px;
+}
+
+/* =========================
+   SEARCH FORM
+========================= */
+
+.search-form{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr 1fr auto;
+
+    gap:15px;
+
+    align-items:center;
+}
+
+.search-input{
+
+    position:relative;
+}
+
+.search-input i{
+
+    position:absolute;
+
+    left:18px;
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#8c96b5;
+}
+
+.search-input input{
+
+    width:100%;
+
+    padding-left:50px;
+}
+
+/* =========================
+   FILTER DROPDOWN
+========================= */
+
+.filter-select{
+
+    width:100%;
+
+    padding:16px 18px;
+
+    border:none;
+    outline:none;
+
+    border-radius:16px;
+
+    color:white;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.06);
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+.filter-select option{
+
+    background:#131a36;
+    color:white;
+}
+
+/* =========================
+   SEARCH BUTTON
+========================= */
+
+.search-btn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:16px 26px;
+
+    border-radius:16px;
+
+    font-weight:700;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    transition:.3s;
+
+    white-space:nowrap;
+}
+
+.search-btn:hover{
+
+    transform:
+    translateY(-2px);
+
+    box-shadow:
+    0 12px 25px rgba(95,125,255,.35);
+}
+
+/* =========================
+   SEARCH STATS
+========================= */
+
+.search-stats{
+
+    display:flex;
+    gap:15px;
+
+    margin-top:20px;
+
+    flex-wrap:wrap;
+}
+
+.stat-chip{
+
+    padding:10px 18px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,255,255,.05);
+
+    border:
+    1px solid rgba(255,255,255,.06);
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+/* =========================
+   RESULTS SECTION
+========================= */
+
+.results-section{
+
+    margin-top:20px;
+}
+
+.results-title{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.results-title h2{
+
+    font-size:24px;
+    font-weight:800;
+}
+
+.results-title span{
+
+    color:var(--muted);
+}
+
+/* =========================
+   MEDICINE GRID
+========================= */
+
+.medicine-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:20px;
+}
+
+/* =========================
+   MEDICINE CARD
+========================= */
+
+.medicine-card{
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:24px;
+
+    transition:.3s;
+
+    backdrop-filter:blur(12px);
+}
+
+.medicine-card:hover{
+
+    transform:
+    translateY(-5px);
+
+    border-color:
+    rgba(95,125,255,.35);
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.25);
+}
+
+.medicine-top{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:18px;
+}
+
+.medicine-icon{
+
+    width:55px;
+    height:55px;
+
+    border-radius:16px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(95,125,255,.18),
+    rgba(37,215,255,.18)
+    );
+}
+
+.medicine-icon i{
+
+    font-size:22px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.age-badge{
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    background:
+    rgba(37,215,255,.12);
+
+    color:#7ce9ff;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+.medicine-card h3{
+
+    font-size:20px;
+    font-weight:700;
+
+    margin-bottom:15px;
+}
+
+.medicine-card p{
+
+    color:var(--muted);
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+/* =========================
+   MEDICINE INFO
+========================= */
+
+.info-group{
+
+    margin-top:18px;
+
+    padding-top:18px;
+
+    border-top:
+    1px solid rgba(255,255,255,.06);
+}
+
+.info-row{
+
+    display:flex;
+    justify-content:space-between;
+
+    margin-bottom:10px;
+
+    gap:10px;
+}
+
+.info-label{
+
+    color:#9aa5c5;
+
+    font-size:13px;
+}
+
+.info-value{
+
+    color:white;
+
+    font-size:13px;
+    font-weight:600;
+
+    text-align:right;
+}
+
+/* =========================
+   MEDICINE DETAILS CARD
+========================= */
+
+.detail-card{
+
+    margin-top:25px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+
+    padding:30px;
+}
+
+.detail-card h3{
+
+    margin-bottom:20px;
+
+    font-size:24px;
+}
+
+.detail-block{
+
+    margin-bottom:18px;
+}
+
+.detail-block h4{
+
+    margin-bottom:8px;
+
+    color:#9db0ff;
+}
+
+.detail-block p{
+
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.table-wrapper{
+
+    overflow-x:auto;
+
+    border-radius:20px;
+
+    margin-top:20px;
+}
+
+.med-table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    overflow:hidden;
+}
+
+.med-table thead{
+
+    background:
+    rgba(95,125,255,.15);
+}
+
+.med-table th{
+
+    text-align:left;
+
+    padding:18px;
+
+    font-size:14px;
+
+    font-weight:700;
+}
+
+.med-table td{
+
+    padding:18px;
+
+    color:var(--muted);
+
+    border-top:
+    1px solid rgba(255,255,255,.05);
+}
+
+.med-table tr:hover{
+
+    background:
+    rgba(255,255,255,.03);
+}
+
+/* =========================
+   DOSAGE BADGE
+========================= */
+
+.dosage-badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    background:
+    rgba(30,232,157,.12);
+
+    color:#7df1c4;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+/* =========================
+   PRECAUTION BADGE
+========================= */
+
+.precaution-badge{
+
+    display:inline-block;
+
+    padding:8px 14px;
+
+    border-radius:50px;
+
+    background:
+    rgba(255,93,125,.12);
+
+    color:#ff9ab0;
+
+    font-size:12px;
+    font-weight:700;
+}
+
+/* =========================
+   EMPTY RESULTS
+========================= */
+
+.empty-results{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    background:
+    rgba(255,255,255,.04);
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:24px;
+}
+
+.empty-results i{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+    color:#5f7dff;
+}
+
+.empty-results h3{
+
+    margin-bottom:10px;
+}
+
+.empty-results p{
+
+    color:var(--muted);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1200px){
+
+    .medicine-grid{
+
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+}
+
+@media(max-width:900px){
+
+    .search-form{
+
+        grid-template-columns:
+        1fr;
+    }
+
+    .search-btn{
+
+        width:100%;
+    }
+
+    .medicine-grid{
+
+        grid-template-columns:
+        1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .page-header h1{
+
+        font-size:32px;
+    }
+
+    .search-container{
+
+        padding:20px;
+    }
+
+    .medicine-card{
+
+        padding:20px;
+    }
+
+    .detail-card{
+
+        padding:20px;
+    }
+
+    .info-row{
+
+        flex-direction:column;
+        gap:5px;
+    }
+
+    .info-value{
+
+        text-align:left;
+    }
+}
+
+/* ===================================
+   END OF PART 4
+
+   NEXT:
+   Symptom Assistant Chat UI
+   Medical Imaging Upload UI
+   Generate Result Page
+   Loading Animations
+   PDF Export Styling
+=================================== */
